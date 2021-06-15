@@ -2,6 +2,8 @@
 
 ![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)
 
+Extra features on native objects
+
 ## Installation
 
 npm:

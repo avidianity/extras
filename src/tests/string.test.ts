@@ -1,5 +1,6 @@
 import '../index';
 import { assert } from 'chai';
+import { isDayjs } from 'dayjs';
 
 describe('String extras work', () => {
     it('casts a string to a number', () => {
@@ -27,7 +28,7 @@ describe('String extras work', () => {
     it('converts into a dayjs object', () => {
         const value = new Date().toJSON().toDayJS();
 
-        assert('toDate' in value);
+        assert(isDayjs(value));
     });
 
     it('converts into a date object', () => {

@@ -1,8 +1,12 @@
 import 'core-js';
+import { Dayjs } from 'dayjs';
 declare global {
     interface String {
         toNumber(): number;
         trim(): string;
+        toDate(): Date;
+        toDayJS(): Dayjs;
+        fromNow(): string;
     }
     interface Error {
         toJSON(): Record<string, unknown>;
@@ -25,8 +29,13 @@ declare global {
     interface StringConstructor {
         random(size?: number): string;
     }
+    interface Date {
+        toDayJS(): Dayjs;
+        fromNow(): string;
+    }
 }
 export * from './Array';
+export * from './Date';
 export * from './Error';
 export * from './Object';
 export * from './String';

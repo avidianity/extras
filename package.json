@@ -1,8 +1,8 @@
 {
     "name": "@avidian/extras",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "private": false,
-    "description": "Extra features on native modules.",
+    "description": "Extra features on native objects.",
     "types": "dist/index.d.ts",
     "main": "dist/index.js",
     "scripts": {
@@ -19,7 +19,7 @@
         "type": "git",
         "url": "git+https://github.com/avidianity/extras"
     },
-    "author": "",
+    "author": "John Michael Manlupig",
     "license": "MIT",
     "homepage": "https://github.com/avidianity/extras",
     "devDependencies": {

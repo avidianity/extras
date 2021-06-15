@@ -12,6 +12,7 @@ var __exportStar = (this && this.__exportStar) || function(m, exports) {
 Object.defineProperty(exports, "__esModule", { value: true });
 require("core-js");
 __exportStar(require("./Array"), exports);
+__exportStar(require("./Date"), exports);
 __exportStar(require("./Error"), exports);
 __exportStar(require("./Object"), exports);
 __exportStar(require("./String"), exports);
