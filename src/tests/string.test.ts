@@ -23,4 +23,20 @@ describe('String extras work', () => {
 
         assert(value.length === length, value);
     });
+
+    it('converts into a dayjs object', () => {
+        const value = new Date().toJSON().toDayJS();
+
+        assert('toDate' in value);
+    });
+
+    it('converts into a date object', () => {
+        const date = new Date().toJSON().toDate();
+
+        assert(date instanceof Date);
+    });
+
+    it('transforms to a Dayjs.fromNow() string representation', () => {
+        assert(new Date().toJSON().fromNow() === 'a few seconds ago');
+    });
 });
