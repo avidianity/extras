@@ -1,6 +1,7 @@
 {
-    "name": "@avidianity/extras",
+    "name": "@avidian/extras",
     "version": "0.0.1",
+    "private": false,
     "description": "Extra features on native modules.",
     "types": "dist/index.d.ts",
     "main": "dist/index.js",
