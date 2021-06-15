@@ -1,4 +1,8 @@
+import dayjs from 'dayjs';
+import relativeTime from 'dayjs/plugin/relativeTime';
 import { trim } from 'lodash';
+
+dayjs.extend(relativeTime);
 
 String.prototype.toNumber = function () {
     const parts = this.split('.');
@@ -16,6 +20,22 @@ String.prototype.toNumber = function () {
 
 String.prototype.trim = function () {
     return trim(this.toString());
+};
+
+String.prototype.toDayJS = function () {
+    const instance = dayjs(this.toString());
+    if (!instance.isValid()) {
+        throw new Error('Invalid Date');
+    }
+    return instance;
+};
+
+String.prototype.toDate = function () {
+    return this.toDayJS().toDate();
+};
+
+String.prototype.fromNow = function () {
+    return this.toDayJS().fromNow();
 };
 
 String.random = (size = 40) => {
