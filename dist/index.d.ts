@@ -23,7 +23,7 @@ declare global {
     interface Object {
         serialize(): string;
         except<T = any>(keys: string[]): T;
-        only<T = any>(keys: string[]): T;
+        getOnly<T = any>(keys: string[]): T;
         copy<T = any>(): T;
     }
     interface StringConstructor {

@@ -3,10 +3,36 @@ import relativeTime from 'dayjs/plugin/relativeTime';
 
 dayjs.extend(relativeTime);
 
-Date.prototype.toDayJS = function () {
-    return dayjs(this);
-};
+const errors: string[] = [];
 
-Date.prototype.fromNow = function () {
-    return this.toDayJS().fromNow();
-};
+if (typeof Date.prototype.toDayJS === 'undefined') {
+    Object.defineProperty(Date.prototype, 'toDayJS', {
+        enumerable: false,
+        configurable: false,
+        writable: false,
+        value: function () {
+            return dayjs(this);
+        },
+    });
+} else {
+    errors.push('toDayJS');
+}
+
+if (typeof Date.prototype.fromNow === 'undefined') {
+    Object.defineProperty(Date.prototype, 'fromNow', {
+        enumerable: false,
+        configurable: false,
+        writable: false,
+        value: function () {
+            return this.toDayJS().fromNow();
+        },
+    });
+} else {
+    errors.push('fromNow');
+}
+
+if (errors.length > 0) {
+    console.error(`@avidian/extras:Date: Unable to patch the following methods - ${errors.join(', ')}`);
+}
+
+export {};

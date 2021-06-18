@@ -19,7 +19,7 @@ describe('Object extras work', () => {
     it('returns an object with only the specified keys', () => {
         const data = { name: 'Joe', age: 21 };
 
-        const except = data.only(['name']);
+        const except = data.getOnly(['name']);
 
         assert(!('age' in except));
     });
