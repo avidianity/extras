@@ -1,8 +1,8 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var errors = [];
-if (typeof Error.prototype.toJSON === 'undefined') {
-    Object.defineProperty(Error.prototype, 'toJSON', {
+if (typeof Error.prototype.toObject === 'undefined') {
+    Object.defineProperty(Error.prototype, 'toObject', {
         writable: false,
         enumerable: false,
         configurable: false,
@@ -23,7 +23,7 @@ if (typeof Error.prototype.toJSON === 'undefined') {
     });
 }
 else {
-    errors.push('toJSON');
+    errors.push('toObject');
 }
 if (errors.length > 0) {
     console.error("@avidian/extras:Error: Unable to patch the following methods - " + errors.join(', '));

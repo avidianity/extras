@@ -4,14 +4,13 @@ import { Dayjs } from 'dayjs';
 declare global {
     interface String {
         toNumber(): number;
-        trim(): string;
         toDate(): Date;
         toDayJS(): Dayjs;
         fromNow(): string;
     }
 
     interface Error {
-        toJSON(): Record<string, unknown>;
+        toObject(): Record<string, unknown>;
     }
 
     interface Array<T> {
@@ -22,13 +21,14 @@ declare global {
         groupBy<K extends keyof T>(key: K): T[][];
         except<K extends keyof T>(keys: K[]): T[];
         only<K extends keyof T>(keys: K[]): T[];
+        has(predicate: (item: T, index: number, thisArg: this) => boolean): boolean;
     }
 
     interface Object {
         serialize(): string;
         except<T = any>(keys: string[]): T;
         getOnly<T = any>(keys: string[]): T;
-        copy<T = any>(): T;
+        clone<T = any>(): T;
     }
 
     interface StringConstructor {

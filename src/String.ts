@@ -29,19 +29,6 @@ if (typeof String.prototype.toNumber === 'undefined') {
     errors.push('toNumber');
 }
 
-if (typeof String.prototype.trim === 'undefined') {
-    Object.defineProperty(String.prototype, 'trim', {
-        enumerable: false,
-        configurable: false,
-        writable: false,
-        value: function () {
-            return trim(this.toString());
-        },
-    });
-} else {
-    errors.push('trim');
-}
-
 if (typeof String.prototype.toDayJS === 'undefined') {
     Object.defineProperty(String.prototype, 'toDayJS', {
         enumerable: false,

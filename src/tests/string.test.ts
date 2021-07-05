@@ -9,14 +9,6 @@ describe('String extras work', () => {
         assert(1.5 === data.toNumber());
     });
 
-    it('trims trailing or leading whitespaces', () => {
-        const data = 'a string  ';
-
-        const value = data.trim();
-
-        assert(value === 'a string');
-    });
-
     it('generates a random string with the specified length', () => {
         const length = 10;
 

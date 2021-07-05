@@ -5,7 +5,6 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var dayjs_1 = __importDefault(require("dayjs"));
 var relativeTime_1 = __importDefault(require("dayjs/plugin/relativeTime"));
-var lodash_1 = require("lodash");
 dayjs_1.default.extend(relativeTime_1.default);
 var errors = [];
 if (typeof String.prototype.toNumber === 'undefined') {
@@ -30,19 +29,6 @@ if (typeof String.prototype.toNumber === 'undefined') {
 }
 else {
     errors.push('toNumber');
-}
-if (typeof String.prototype.trim === 'undefined') {
-    Object.defineProperty(String.prototype, 'trim', {
-        enumerable: false,
-        configurable: false,
-        writable: false,
-        value: function () {
-            return lodash_1.trim(this.toString());
-        },
-    });
-}
-else {
-    errors.push('trim');
 }
 if (typeof String.prototype.toDayJS === 'undefined') {
     Object.defineProperty(String.prototype, 'toDayJS', {

@@ -63,4 +63,13 @@ describe('Array extras work', () => {
 
         assert(!('gender' in only[0]));
     });
+
+    it('checks if a certain element exists', () => {
+        const data = [
+            { gender: 'Male', name: 'Joe' },
+            { gender: 'Female', name: 'Jane' },
+        ];
+
+        assert(data.has((item) => item.gender === 'Male') === true);
+    });
 });

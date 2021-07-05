@@ -24,7 +24,7 @@ if (typeof Date.prototype.fromNow === 'undefined') {
         configurable: false,
         writable: false,
         value: function () {
-            return this.toDayJS().fromNow();
+            return dayjs(this).fromNow();
         },
     });
 } else {

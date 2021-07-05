@@ -112,6 +112,25 @@ if (typeof Array.prototype.only === 'undefined') {
 else {
     errors.push('only');
 }
+if (typeof Array.prototype.has === 'undefined') {
+    Object.defineProperty(Array.prototype, 'has', {
+        enumerable: false,
+        configurable: false,
+        writable: false,
+        value: function (predicate) {
+            for (var key in this) {
+                var item = this[key];
+                if (predicate(item, key, this)) {
+                    return true;
+                }
+            }
+            return false;
+        },
+    });
+}
+else {
+    errors.push('has');
+}
 if (errors.length > 0) {
     console.error("@avidian/extras:Array: Unable to patch the following methods - " + errors.join(', '));
 }

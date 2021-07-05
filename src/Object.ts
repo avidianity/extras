@@ -50,8 +50,8 @@ if (typeof Object.prototype.getOnly === 'undefined') {
     errors.push('getOnly');
 }
 
-if (typeof Object.prototype.copy === 'undefined') {
-    Object.defineProperty(Object.prototype, 'copy', {
+if (typeof Object.prototype.clone === 'undefined') {
+    Object.defineProperty(Object.prototype, 'clone', {
         enumerable: false,
         configurable: false,
         writable: false,
@@ -60,7 +60,7 @@ if (typeof Object.prototype.copy === 'undefined') {
         },
     });
 } else {
-    errors.push('copy');
+    errors.push('clone');
 }
 
 if (errors.length > 0) {

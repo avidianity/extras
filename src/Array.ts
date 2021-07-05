@@ -108,6 +108,25 @@ if (typeof Array.prototype.only === 'undefined') {
     errors.push('only');
 }
 
+if (typeof Array.prototype.has === 'undefined') {
+    Object.defineProperty(Array.prototype, 'has', {
+        enumerable: false,
+        configurable: false,
+        writable: false,
+        value: function <T>(predicate: (item: T, index: number, thisArg: any) => boolean) {
+            for (const key in this) {
+                const item = this[key];
+                if (predicate(item, key as any, this)) {
+                    return true;
+                }
+            }
+            return false;
+        },
+    });
+} else {
+    errors.push('has');
+}
+
 if (errors.length > 0) {
     console.error(`@avidian/extras:Array: Unable to patch the following methods - ${errors.join(', ')}`);
 }
