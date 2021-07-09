@@ -1,6 +1,6 @@
 {
     "name": "@avidian/extras",
-    "version": "0.0.4",
+    "version": "1.0.0",
     "private": false,
     "description": "Extra features on native objects.",
     "types": "dist/index.d.ts",
@@ -27,6 +27,7 @@
         "@types/core-js": "^2.5.4",
         "@types/lodash": "^4.14.170",
         "@types/mocha": "^8.2.2",
+        "@types/node": "^16.3.0",
         "chai": "^4.2.0",
         "mocha": "^8.2.1",
         "ts-node": "^10.0.0",

@@ -21,7 +21,7 @@ declare global {
         has(predicate: (item: T, index: number, thisArg: this) => boolean): boolean;
     }
     interface Object {
-        serialize(): string;
+        serializeAsJSON(): string;
         except<T = any>(keys: string[]): T;
         getOnly<T = any>(keys: string[]): T;
         clone<T = any>(): T;

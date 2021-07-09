@@ -1,7 +1,7 @@
 const errors: string[] = [];
 
-if (typeof Object.prototype.serialize === 'undefined') {
-    Object.defineProperty(Object.prototype, 'serialize', {
+if (typeof Object.prototype.serializeAsJSON === 'undefined') {
+    Object.defineProperty(Object.prototype, 'serializeAsJSON', {
         enumerable: false,
         configurable: false,
         writable: false,
@@ -10,7 +10,7 @@ if (typeof Object.prototype.serialize === 'undefined') {
         },
     });
 } else {
-    errors.push('serialize');
+    errors.push('serializeAsJSON');
 }
 
 if (typeof Object.prototype.except) {

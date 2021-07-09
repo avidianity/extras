@@ -5,7 +5,7 @@ describe('Object extras work', () => {
     it('serializes an object to a json string', () => {
         const data = { name: 'Joe', age: 21 };
 
-        assert(typeof data.serialize() === 'string');
+        assert(typeof data.serializeAsJSON() === 'string');
     });
 
     it('returns an object except the specified keys', () => {

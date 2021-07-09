@@ -25,7 +25,7 @@ declare global {
     }
 
     interface Object {
-        serialize(): string;
+        serializeAsJSON(): string;
         except<T = any>(keys: string[]): T;
         getOnly<T = any>(keys: string[]): T;
         clone<T = any>(): T;
