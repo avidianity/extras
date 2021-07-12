@@ -1,6 +1,17 @@
-import dayjs from 'dayjs';
+import dayjs, { Dayjs } from 'dayjs';
 import relativeTime from 'dayjs/plugin/relativeTime';
-import { trim } from 'lodash';
+
+declare global {
+    interface String {
+        toNumber(): number;
+        toDate(): Date;
+        toDayJS(): Dayjs;
+        fromNow(): string;
+    }
+    interface StringConstructor {
+        random(size?: number): string;
+    }
+}
 
 dayjs.extend(relativeTime);
 

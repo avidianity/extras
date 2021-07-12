@@ -1,3 +1,9 @@
+declare global {
+    interface Error {
+        toObject(): Record<string, any>;
+    }
+}
+
 const errors: string[] = [];
 
 if (typeof Error.prototype.toObject === 'undefined') {

@@ -51,8 +51,8 @@ if (typeof Object.prototype.getOnly === 'undefined') {
 else {
     errors.push('getOnly');
 }
-if (typeof Object.prototype.clone === 'undefined') {
-    Object.defineProperty(Object.prototype, 'clone', {
+if (typeof Object.prototype.replicate === 'undefined') {
+    Object.defineProperty(Object.prototype, 'replicate', {
         enumerable: false,
         configurable: false,
         writable: false,

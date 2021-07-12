@@ -27,6 +27,6 @@ describe('Object extras work', () => {
     it('makes a copy of an object', () => {
         const data = { name: 'Joe', age: 21 };
 
-        assert(data !== data.clone());
+        assert(data !== data.replicate());
     });
 });

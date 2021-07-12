@@ -1,3 +1,12 @@
+declare global {
+    interface Object {
+        serializeAsJSON(): string;
+        except<T = any>(keys: string[]): T;
+        getOnly<T = any>(keys: string[]): T;
+        replicate<T = any>(): T;
+    }
+}
+
 const errors: string[] = [];
 
 if (typeof Object.prototype.serializeAsJSON === 'undefined') {
@@ -50,8 +59,8 @@ if (typeof Object.prototype.getOnly === 'undefined') {
     errors.push('getOnly');
 }
 
-if (typeof Object.prototype.clone === 'undefined') {
-    Object.defineProperty(Object.prototype, 'clone', {
+if (typeof Object.prototype.replicate === 'undefined') {
+    Object.defineProperty(Object.prototype, 'replicate', {
         enumerable: false,
         configurable: false,
         writable: false,
