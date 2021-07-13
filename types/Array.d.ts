@@ -10,4 +10,6 @@ declare global {
         has(predicate: (item: T, index: number, thisArg: this) => boolean): boolean;
     }
 }
+export declare function except<T, K extends keyof T>(item: T, keys: K[]): any;
+export declare function only<T, K extends keyof T>(item: T, keys: K[]): any;
 export {};

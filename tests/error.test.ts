@@ -1,4 +1,4 @@
-import '../index';
+import '../src/index';
 import { assert } from 'chai';
 
 describe('Error extras work', () => {

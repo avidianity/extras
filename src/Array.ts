@@ -95,13 +95,37 @@ if (typeof Array.prototype.groupBy === 'undefined') {
     errors.push('groupBy');
 }
 
+export function except<T, K extends keyof T>(item: T, keys: K[]) {
+    const copy: any = {};
+
+    for (const key in item) {
+        if (!keys.includes(key as any)) {
+            copy[key] = item[key];
+        }
+    }
+
+    return copy;
+}
+
+export function only<T, K extends keyof T>(item: T, keys: K[]) {
+    const copy: any = {};
+
+    for (const key in item) {
+        if (keys.includes(key as any)) {
+            copy[key] = item[key];
+        }
+    }
+
+    return copy;
+}
+
 if (typeof Array.prototype.except === 'undefined') {
     Object.defineProperty(Array.prototype, 'except', {
         enumerable: false,
         configurable: false,
         writable: false,
         value: function <T, K extends keyof T>(keys: K[]) {
-            return [...this].map((item: object) => item.except(keys as any));
+            return [...this].map((item: object) => except(item, keys as any));
         },
     });
 } else {
@@ -114,7 +138,7 @@ if (typeof Array.prototype.only === 'undefined') {
         configurable: false,
         writable: false,
         value: function <T, K extends keyof T>(keys: K[]) {
-            return [...this].map((item: Object) => item.getOnly(keys as any));
+            return [...this].map((item: Object) => only(item, keys as any));
         },
     });
 } else {
