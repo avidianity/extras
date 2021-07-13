@@ -1,9 +1,9 @@
 {
     "name": "@avidian/extras",
-    "version": "0.0.7",
+    "version": "0.0.8",
     "private": false,
     "description": "Extra features on native objects.",
-    "types": "dist/index.d.ts",
+    "types": "types/index.d.ts",
     "main": "dist/index.js",
     "scripts": {
         "clean": "rm -rf dist && rm -rf types",
