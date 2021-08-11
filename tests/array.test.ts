@@ -11,6 +11,16 @@ describe('Array extras work', () => {
         assert(data.includes(value));
     });
 
+    it('limits the amount of elements', () => {
+        const limit = 5;
+
+        const data = [1, 2, 3, 4, 5, 6, 7, 8];
+
+        data.limit(limit);
+
+        assert(data.length <= limit);
+    });
+
     it('gets the first element', () => {
         const data = [1, 2, 3];
 

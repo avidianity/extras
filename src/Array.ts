@@ -10,6 +10,7 @@ declare global {
         except<K extends keyof T>(keys: K[]): T[];
         only<K extends keyof T>(keys: K[]): T[];
         has(predicate: (item: T, index: number, thisArg: this) => boolean): boolean;
+        limit(length: number): this;
     }
 }
 
@@ -26,6 +27,23 @@ if (typeof Array.prototype.random === 'undefined') {
     });
 } else {
     errors.push('random');
+}
+
+if (typeof Array.prototype.limit === 'undefined') {
+    Object.defineProperty(Array.prototype, 'limit', {
+        enumerable: false,
+        configurable: false,
+        writable: false,
+        value: function (length: number) {
+            if (this.length > length) {
+                this.length = length;
+            }
+
+            return this;
+        },
+    });
+} else {
+    errors.push('limit');
 }
 
 if (typeof Array.prototype.first === 'undefined') {

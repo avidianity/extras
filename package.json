@@ -1,6 +1,6 @@
 {
     "name": "@avidian/extras",
-    "version": "0.0.8",
+    "version": "1.0.0",
     "private": false,
     "description": "Extra features on native objects.",
     "types": "types/index.d.ts",
