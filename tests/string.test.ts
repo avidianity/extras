@@ -32,4 +32,16 @@ describe('String extras work', () => {
     it('transforms to a Dayjs.fromNow() string representation', () => {
         assert(new Date().toJSON().fromNow() === 'a few seconds ago');
     });
+
+    it('makes the first letter of a word capitalized', () => {
+        const name = 'name';
+
+        assert('Name' === name.ucfirst());
+    });
+
+    it('makes the words of a sentence capitalized', () => {
+        const sentence = 'hello world';
+
+        assert('Hello World' === sentence.ucwords());
+    });
 });

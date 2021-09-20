@@ -5,6 +5,8 @@ declare global {
         toDate(): Date;
         toDayJS(): Dayjs;
         fromNow(): string;
+        ucfirst(): string;
+        ucwords(): string;
     }
     interface StringConstructor {
         random(size?: number): string;

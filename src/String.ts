@@ -7,6 +7,8 @@ declare global {
         toDate(): Date;
         toDayJS(): Dayjs;
         fromNow(): string;
+        ucfirst(): string;
+        ucwords(): string;
     }
     interface StringConstructor {
         random(size?: number): string;
@@ -109,6 +111,48 @@ if (typeof String.random === 'undefined') {
     });
 } else {
     errors.push('random');
+}
+
+if (typeof String.prototype.ucfirst === 'undefined') {
+    Object.defineProperty(String.prototype, 'ucfirst', {
+        enumerable: false,
+        configurable: false,
+        writable: false,
+        value: function () {
+            const fragments = this.split('');
+
+            if (fragments.length > 0) {
+                fragments[0] = fragments[0].toUpperCase();
+            }
+
+            return fragments.join('');
+        },
+    });
+} else {
+    errors.push('ucfirst');
+}
+
+if (typeof String.prototype.ucwords === 'undefined') {
+    Object.defineProperty(String.prototype, 'ucwords', {
+        enumerable: false,
+        configurable: false,
+        writable: false,
+        value: function () {
+            return this.split(' ')
+                .map((string: string) => {
+                    const fragments = string.split('');
+
+                    if (fragments.length > 0) {
+                        fragments[0] = fragments[0].toUpperCase();
+                    }
+
+                    return fragments.join('');
+                })
+                .join(' ');
+        },
+    });
+} else {
+    errors.push('ucwords');
 }
 
 if (errors.length > 0) {
